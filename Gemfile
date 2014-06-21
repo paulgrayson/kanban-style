@@ -39,3 +39,9 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'pivotal-tracker'
+
+group :test do
+  gem "capybara"
+  gem "rspec-rails"
+end
+
