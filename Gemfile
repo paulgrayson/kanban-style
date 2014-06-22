@@ -39,6 +39,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'pivotal-tracker'
+gem 'haml'
+gem 'dotenv'
 
 group :test do
   gem "capybara"

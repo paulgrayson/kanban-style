@@ -1,0 +1,8 @@
+%h1 Kanban Style
+
+%p Select a project to see its Kanban board:
+%ul
+  - @projects.each do |project|
+    %li
+      %a{href: project_path(project.id)}= project.name
+

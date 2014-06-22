@@ -11,3 +11,7 @@ How?
 4. Start the server and point your browser at:...
 
 
+Notes:
+* DONE column only contains delivered stories or accepted stories that have had activity in the last working day
+
+
