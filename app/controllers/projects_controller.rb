@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
   end
 
   def fetch_project(id)
-    puts "in fetch_project"
     PivotalTracker::Project.find(id.to_i)
   end
 
