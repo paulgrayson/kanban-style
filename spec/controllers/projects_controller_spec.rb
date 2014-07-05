@@ -10,19 +10,25 @@ describe ProjectsController do
   end
 
   describe 'GET show' do
+    let(:id) { '1' }
+
+    before do
+      subject.stub(:fetch_project).with(id).and_return(project)
+    end
+
     context 'valid project id' do
+      let(:project) { {} }
+
       it 'renders the template' do
-        id = '1'
-        subject.stub(:fetch_project).with(id).and_return({})
         get :show, id: id
         expect(response).to render_template('projects/show')
       end
     end
 
     context 'invalid project id' do
+      let(:project) { nil }
+
       it 'redirects to index' do
-        id = 'banana'
-        subject.stub(:fetch_project).with(id).and_return(nil)
         get :show, id: id
         expect(response).to redirect_to(projects_path)
       end
