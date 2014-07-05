@@ -24,17 +24,23 @@ feature "viewing a projects board" do
     ]
   end
 
-  scenario "I can see the project name and some stories" do
-    # Scenario: I can see the project name and some stories
-    # Given a pivotal project with some stories
-    # When I view the project's board
-    # Then I see the projects name
-    # And I see some stories
+  before do
     PivotalClient.any_instance.stub(fetch_project: project)
     PivotalClient.any_instance.stub(fetch_stories: stories)
+  end
+
+  scenario "the project name and some stories are shown" do
     page.open project.id
     page.project_name.should == project.name
     page.stories.length.should > 0
+  end
+
+  scenario "streams done, in-progress and todo, each containing stories are shown" do
+    page.open project.id
+    page.stream_names.should contain_exactly('Done', 'In progress', 'Todo')
+    page.stories(stream: :done).length.should > 0
+    page.stories(stream: :in_progress).length.should > 0
+    page.stories(stream: :todo).length.should > 0
   end
 
 end

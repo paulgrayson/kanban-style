@@ -1,7 +1,10 @@
 %h1#project-name= @project.name
 
-.stories
-  - @stories.each do |story|
-    .story
-      =story.name
+- @streams.each do |stream_name, stories|
+  %div{class: "col1 stream stream-#{stream_name}"}
+    %h2.stream-name= ActiveSupport::Inflector::humanize(stream_name)
+    - stories.each do |story|
+      .story
+        =story.name
+%div.clear
 

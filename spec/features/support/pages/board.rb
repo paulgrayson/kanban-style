@@ -10,8 +10,15 @@ module Pages
       find('#project-name').text
     end
 
-    def stories
-      all('.story')
+    def stories(opts={})
+      stream = opts.delete(:stream)
+      selector = '.story'
+      selector = ".stream-#{stream} "+ selector if stream
+      all(selector)
+    end
+
+    def stream_names
+      all('.stream-name').map(&:text)
     end
   end
 end

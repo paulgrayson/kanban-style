@@ -1,3 +1,63 @@
 // Place all the styles related to the project controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$pad: 5px;
+$doublePad: $pad * 2;
+
+
+// Resets ----------
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+body {
+  font-family: Arial;
+  font-size: x-large;
+}
+
+
+// Utilities ----------
+
+.clear { clear: both; }
+
+
+// "Grid" ----------
+
+.col1 {
+  width: 33%;
+  float: left;
+}
+
+
+// Page ----------
+
+.stream {
+  padding: 0px;
+}
+
+body, .stream-name, .story {
+  padding: $pad $doublePad;
+}
+
+.stream-name {
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.stream-done { background-color: #9DCE5C; }
+.stream-in_progress { background-color: #C7EB6E; }
+.stream-todo { background-color: #E5E5E5; }
+
+.story {
+  border-top: 1px dotted white;
+  min-height: 80px;
+  padding-bottom: $doublePad;
+}
