@@ -5,6 +5,8 @@
     %h2.stream-name= ActiveSupport::Inflector::humanize(stream_name)
     - stories.each do |story|
       .story
-        =story.name
+        .story-name= story.name
+        .story-owner= story.owned_by
+        .story-accepted-at= story.accepted_at
 %div.clear
 

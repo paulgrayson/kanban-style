@@ -61,3 +61,9 @@ body, .stream-name, .story {
   min-height: 80px;
   padding-bottom: $doublePad;
 }
+
+.story-name { }
+.story-owner {
+  font-size: large;
+  color: #444041;
+}

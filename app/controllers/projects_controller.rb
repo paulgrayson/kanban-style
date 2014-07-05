@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   def show
     @project = pivotal.fetch_project(params[:id])
     @streams = create_streams(@project)
+    p @streams[:done]
     if @project
       render :show 
     else
@@ -22,11 +23,11 @@ private
   end
 
   def create_streams(project)
-    stories = pivotal.fetch_stories(project)
+    streamer = Streamer.new(pivotal, project)
     {
-      done: stories,
-      in_progress: stories,
-      todo: stories
+      done: streamer.done,
+      in_progress: streamer.in_progress,
+      todo: streamer.todo
     }
   end
 
