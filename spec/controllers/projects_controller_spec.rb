@@ -1,9 +1,16 @@
 require 'rails_helper'
 
 describe ProjectsController do
+
+  # ensure no method on any PivotalClient instance is called
+  before do
+    @pivotal_stub = double
+    subject.stub(:pivotal).and_return(@pivotal_stub)
+  end
+
   describe 'GET index' do
     it 'renders the template' do
-      subject.stub(:fetch_projects).and_return({})
+      @pivotal_stub.stub(fetch_projects: [])
       get :index
       expect(response).to render_template('index')
     end
@@ -13,7 +20,8 @@ describe ProjectsController do
     let(:id) { '1' }
 
     before do
-      subject.stub(:fetch_project).with(id).and_return(project)
+      @pivotal_stub.stub(fetch_project: project)
+      @pivotal_stub.stub(fetch_stories: [])
     end
 
     context 'valid project id' do

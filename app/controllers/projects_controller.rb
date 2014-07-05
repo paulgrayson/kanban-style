@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = fetch_projects
+    @projects = pivotal.fetch_projects
   end
 
   def show
-    @project = fetch_project(params[:id])
+    @project = pivotal.fetch_project(params[:id])
+    @stories = pivotal.fetch_stories(@project)
     if @project
       render :show 
     else
@@ -14,14 +15,10 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private
-
-  def fetch_projects
-    PivotalTracker::Project.all
-  end
-
-  def fetch_project(id)
-    PivotalTracker::Project.find(id.to_i)
+private
+  
+  def pivotal
+    @pivotal_client ||= PivotalClient.new
   end
 
 end

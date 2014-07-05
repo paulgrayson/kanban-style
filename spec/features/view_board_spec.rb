@@ -9,8 +9,19 @@ feature "viewing a projects board" do
   let :project do
     OpenStruct.new(
       id: 123,
-      name: "KanbanStyle"
+      name: 'KanbanStyle'
     )
+  end
+
+  let :stories do
+    [
+      OpenStruct.new(
+        name: 'Story #1'
+      ),
+      OpenStruct.new(
+        name: 'Story #2'
+      )
+    ]
   end
 
   scenario "I can see the project name and some stories" do
@@ -19,7 +30,8 @@ feature "viewing a projects board" do
     # When I view the project's board
     # Then I see the projects name
     # And I see some stories
-    ProjectsController.any_instance.stub(fetch_project: project)
+    PivotalClient.any_instance.stub(fetch_project: project)
+    PivotalClient.any_instance.stub(fetch_stories: stories)
     page.open project.id
     page.project_name.should == project.name
     page.stories.length.should > 0
