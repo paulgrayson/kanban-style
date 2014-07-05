@@ -9,7 +9,6 @@ Why? At daily standup, it's often hard for everyone to see the standard Pivotal 
 * Your .env file will need an API token for your PivotalTracker account. You can find this in PivotalTracker at the bottom of your profile page.
 
 ## Todo
-* Put a limit on all fetch_stories of 100 (safety)
 * Format and style accepted at timestamp
 * Visually mark of sections of done stream by day they were accepted
 * Show labels
