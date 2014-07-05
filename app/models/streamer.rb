@@ -10,7 +10,8 @@ class Streamer
   def done
     # TODO accepted option doesn't seem to work, get 0 results when there should be many
     opts = {current_state: 'accepted'}   # accepted: -3d
-    @pivotal_client.fetch_stories(@project, opts)
+    unordered = @pivotal_client.fetch_stories(@project, opts)
+    unordered and unordered.sort_by(&:accepted_at).reverse
   end
 
   def in_progress

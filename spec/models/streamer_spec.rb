@@ -17,7 +17,12 @@ describe Streamer do
       streamer.done
     end
 
-    it 'sorts so that most recently accepted is first'
+    it 'sorts so that most recently accepted is first' do
+      now = Time.now
+      first, second, third = double(accepted_at: now), double(accepted_at: now - 1.hour ), double(accepted_at: now - 2.hours)
+      pivotal_stub.stub(fetch_stories: [third, first, second])
+      streamer.done.should eq [first, second, third]
+    end
   end
 
   describe :in_progress do
