@@ -104,3 +104,20 @@ a:hover { text-decoration: underline; }
   color: #444041;
 }
 
+.project-list {
+  list-style: none;
+}
+
+.project-list-link {
+  color: black;
+}
+
+.project-list-item {
+  background-color: lightgray;
+  padding: $doublePad;
+  margin: $pad;
+}
+
+.project-list-item:hover {
+  background-color: #9DCE5C;
+}
