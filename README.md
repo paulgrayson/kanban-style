@@ -11,6 +11,7 @@ Why? At daily standup, it's often hard for everyone to see the standard Pivotal 
 ## Todo 
 * Style project selector
 * Replace pivotal token in .env with a user login step
+* Fetch streams using ajax and show progress spinner
 * ...
 
 

@@ -1,4 +1,7 @@
-%h1#project-name= @presenter.project.name
+.header
+  %a.crumb{href: projects_path} All Projects
+  \/
+  %span#project-name.crumb.project-name= @presenter.project.name
 
 - @presenter.streams.each do |stream_name, stories|
   %div{class: "col1 stream stream-#{stream_name}"}

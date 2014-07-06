@@ -45,8 +45,18 @@ a:hover { text-decoration: underline; }
   padding: 0px;
 }
 
-body, .stream-name, .story, .date-bar {
+.stream-name, .story, .date-bar {
   padding: $pad $doublePad;
+}
+
+.footer {
+  font-size: small;
+  padding: $pad $doublePad;
+}
+
+.main {
+  background-color: white;
+  padding: $pad;
 }
 
 .stream-name {
@@ -77,7 +87,6 @@ body, .stream-name, .story, .date-bar {
 
 .story-label {
   font-size: 60%;
-  //background-color: #444041;
   background-color: rgba(0,0,0, 0.4);
   color: white;
   padding: $tightPad;
@@ -85,5 +94,13 @@ body, .stream-name, .story, .date-bar {
 
 .date-bar {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  padding: $doublePad;
+}
+.crumb {
+  font-size: 100%;
+  color: #444041;
 }
 
