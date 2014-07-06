@@ -9,7 +9,7 @@
         .date-bar= story.accepted_at.strftime('%a %-d %b')
       
       .story
-        .story-name= story.name
+        %a.story-name{href: story.url}= story.name
         .story-owner= story.owned_by
 %div.clear
 

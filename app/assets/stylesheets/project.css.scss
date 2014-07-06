@@ -22,6 +22,8 @@ body {
   font-size: x-large;
 }
 
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 // Utilities ----------
 
@@ -62,9 +64,13 @@ body, .stream-name, .story, .date-bar {
   padding-bottom: $doublePad;
 }
 
-.story-name { }
+.story-name {
+  color: black;
+}
+
 .story-owner {
-  font-size: large;
+  padding-top: $pad;
+  font-size: 70%;
   color: #444041;
 }
 
