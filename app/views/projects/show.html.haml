@@ -11,5 +11,8 @@
       .story
         %a.story-name{href: story.url}= story.name
         .story-owner= story.owned_by
+        .story-labels
+          - @presenter.story_labels(story).each do |label|
+            %span.story-label= label
 %div.clear
 

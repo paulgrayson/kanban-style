@@ -4,6 +4,7 @@
 
 $pad: 5px;
 $doublePad: $pad * 2;
+$tightPad: 3px;
 
 
 // Resets ----------
@@ -72,6 +73,14 @@ body, .stream-name, .story, .date-bar {
   padding-top: $pad;
   font-size: 70%;
   color: #444041;
+}
+
+.story-label {
+  font-size: 60%;
+  //background-color: #444041;
+  background-color: rgba(0,0,0, 0.4);
+  color: white;
+  padding: $tightPad;
 }
 
 .date-bar {
