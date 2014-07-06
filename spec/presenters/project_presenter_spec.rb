@@ -10,7 +10,6 @@ describe ProjectPresenter do
   let(:subject) { ProjectPresenter.new(nil, '123') }
 
   describe '#each_story' do
-#    let(:stream) { OpenStruct.new(name: 'StoryName', stories: stories) }
 
     def expect_each_story_to_have_successive_yields_with(*successive_args)
       expect do |b|
