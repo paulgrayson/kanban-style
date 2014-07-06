@@ -79,5 +79,11 @@ describe ProjectPresenter do
     end
   end
 
+  describe '#story_labels' do
+    it 'is empty array when no labels' do
+      subject.story_labels(double(labels: nil)).should == []
+    end
+  end
+
 end
 

@@ -47,7 +47,11 @@ class ProjectPresenter
   end
 
   def story_labels(story)
-    story.labels.split(',').sort
+    if story.labels
+      story.labels.split(',').sort
+    else
+      []
+    end
   end
 
 end
