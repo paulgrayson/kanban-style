@@ -1,27 +1,18 @@
 class ProjectPresenter
 
-  def initialize(pivotal_client, project_id)
-    @pivotal_client = pivotal_client
-    @project_id = project_id
-  end
+  attr_reader :project
 
-  def project
-    @project ||= @pivotal_client.fetch_project(@project_id)
-  end
-
-  def found_project?
-    !project.nil?
+  def initialize(project, streamer)
+    @project = project
+    @streamer = streamer
   end
 
   def streams
-    @streams ||= begin
-      streamer = Streamer.new(@pivotal_client, project)
-      {
-        done: streamer.done,
-        in_progress: streamer.in_progress,
-        todo: streamer.todo
-      }
-    end
+    @streams ||= {
+      done: @streamer.done,
+      in_progress: @streamer.in_progress,
+      todo: @streamer.todo
+    }
   end
 
   def each_story(stream_name, stories)

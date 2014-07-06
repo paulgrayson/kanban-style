@@ -7,7 +7,7 @@ describe ProjectPresenter do
   let(:today_story) { OpenStruct.new(accepted_at: Time.now) }
   let(:yesterday_story) { OpenStruct.new(accepted_at: 1.day.ago) }
 
-  let(:subject) { ProjectPresenter.new(nil, '123') }
+  let(:subject) { ProjectPresenter.new(nil, nil) }
 
   describe '#each_story' do
 

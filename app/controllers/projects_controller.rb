@@ -5,8 +5,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @presenter = ProjectPresenter.new(pivotal, params[:id])
-    if @presenter.found_project?
+    project = pivotal.fetch_project(params[:id])
+    if project
+      streamer = Streamer.new(pivotal, project)
+      @presenter = ProjectPresenter.new(project, streamer)
       render :show 
     else
       flash[:error] = 'Unknown project id'
