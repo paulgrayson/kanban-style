@@ -42,13 +42,13 @@ body {
   padding: 0px;
 }
 
-body, .stream-name, .story {
+body, .stream-name, .story, .date-bar {
   padding: $pad $doublePad;
 }
 
 .stream-name {
   text-transform: uppercase;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
 }
 
@@ -57,7 +57,7 @@ body, .stream-name, .story {
 .stream-todo { background-color: #E5E5E5; }
 
 .story {
-  border-top: 1px dotted white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   min-height: 80px;
   padding-bottom: $doublePad;
 }
@@ -67,3 +67,8 @@ body, .stream-name, .story {
   font-size: large;
   color: #444041;
 }
+
+.date-bar {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+

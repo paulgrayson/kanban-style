@@ -5,10 +5,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = pivotal.fetch_project(params[:id])
-    @streams = create_streams(@project)
-    p @streams[:done]
-    if @project
+    @presenter = ProjectPresenter.new(pivotal, params[:id])
+    if @presenter.found_project?
       render :show 
     else
       flash[:error] = 'Unknown project id'
@@ -20,15 +18,6 @@ private
   
   def pivotal
     @pivotal_client ||= PivotalClient.new
-  end
-
-  def create_streams(project)
-    streamer = Streamer.new(pivotal, project)
-    {
-      done: streamer.done,
-      in_progress: streamer.in_progress,
-      todo: streamer.todo
-    }
   end
 
 end

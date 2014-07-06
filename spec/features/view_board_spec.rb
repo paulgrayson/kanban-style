@@ -16,10 +16,12 @@ feature "viewing a projects board" do
   let :stories do
     [
       OpenStruct.new(
-        name: 'Story #1'
+        name: 'Story #1',
+        accepted_at: 10.minutes.ago
       ),
       OpenStruct.new(
-        name: 'Story #2'
+        name: 'Story #2',
+        accepted_at: 1.day.ago
       )
     ]
   end

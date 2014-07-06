@@ -43,7 +43,8 @@ gem 'haml'
 gem 'dotenv'
 
 group :test do
-  gem "capybara"
-  gem "rspec-rails"
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'timecop'
 end
 

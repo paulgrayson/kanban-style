@@ -9,8 +9,6 @@ Why? At daily standup, it's often hard for everyone to see the standard Pivotal 
 * Your .env file will need an API token for your PivotalTracker account. You can find this in PivotalTracker at the bottom of your profile page.
 
 ## Todo
-* Format and style accepted at timestamp
-* Visually mark of sections of done stream by day they were accepted
 * Show labels
 * make story name a link to the story in pivotal
 * Style project selector

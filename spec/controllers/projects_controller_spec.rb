@@ -17,27 +17,18 @@ describe ProjectsController do
   end
 
   describe 'GET show' do
-    let(:id) { '1' }
-
-    before do
-      @pivotal_stub.stub(fetch_project: project)
-      @pivotal_stub.stub(fetch_stories: [])
-    end
-
     context 'valid project id' do
-      let(:project) { {} }
-
       it 'renders the template' do
-        get :show, id: id
+        ProjectPresenter.any_instance.stub(found_project?: true)
+        get :show, id: '123'
         expect(response).to render_template('projects/show')
       end
     end
 
     context 'invalid project id' do
-      let(:project) { nil }
-
       it 'redirects to index' do
-        get :show, id: id
+        ProjectPresenter.any_instance.stub(found_project?: false)
+        get :show, id: '234'
         expect(response).to redirect_to(projects_path)
       end
     end

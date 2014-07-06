@@ -1,12 +1,15 @@
-%h1#project-name= @project.name
+%h1#project-name= @presenter.project.name
 
-- @streams.each do |stream_name, stories|
+- @presenter.streams.each do |stream_name, stories|
   %div{class: "col1 stream stream-#{stream_name}"}
     %h2.stream-name= ActiveSupport::Inflector::humanize(stream_name)
-    - stories.each do |story|
+
+    - @presenter.each_story(stream_name, stories) do |story, show_date_bar|
+      - if show_date_bar
+        .date-bar= story.accepted_at.strftime('%a %-d %b')
+      
       .story
         .story-name= story.name
         .story-owner= story.owned_by
-        .story-accepted-at= story.accepted_at
 %div.clear
 
