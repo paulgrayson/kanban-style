@@ -4,18 +4,6 @@
   %span#project-name.crumb.project-name= @presenter.project.name
 
 - @presenter.streams.each do |stream_name, stories|
-  %div{class: "col1 stream stream-#{stream_name}"}
-    %h2.stream-name= ActiveSupport::Inflector::humanize(stream_name)
-
-    - @presenter.each_story(stream_name, stories) do |story, show_date_bar|
-      - if show_date_bar
-        .date-bar= story.accepted_at.strftime('%a %-d %b')
-      
-      .story
-        %a.story-name{href: story.url}= story.name
-        .story-owner= story.owned_by
-        .story-labels
-          - @presenter.story_labels(story).each do |label|
-            %span.story-label= label
+  = render partial: 'stream', locals: { stream_name: stream_name, stories: stories }
 %div.clear
 

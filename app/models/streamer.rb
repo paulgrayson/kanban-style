@@ -7,6 +7,10 @@ class Streamer
     @project = project
   end
 
+  def stream(name)
+    self.send(name.to_sym)
+  end
+
   def done
     # TODO accepted option doesn't seem to work, get 0 results when there should be many
     opts = {current_state: 'accepted'}   # accepted: -3d
