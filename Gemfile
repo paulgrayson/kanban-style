@@ -46,5 +46,6 @@ group :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'timecop'
+  gem 'poltergeist'
 end
 

@@ -31,7 +31,7 @@ feature "viewing a projects board" do
     PivotalClient.any_instance.stub(fetch_stories: stories)
   end
 
-  scenario "the project name and some stories are shown" do
+  scenario "the project name and some stories are shown", js: true do
     page.open project.id
     page.project_name.should == project.name
     page.stories.length.should > 0
