@@ -4,6 +4,6 @@
   %span#project-name.crumb.project-name= @presenter.project.name
 
 - @presenter.streams.each do |stream_name, stories|
-  = render partial: 'stream', locals: { presenter: @presenter.stream_presenter, stream_name: stream_name, stories: stories }
+  = render partial: 'stream', locals: { presenter: @presenter.stream_presenter(stream_name, stories) }
 %div.clear
 

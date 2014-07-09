@@ -7,13 +7,14 @@ describe StreamPresenter do
   let(:today_story) { OpenStruct.new(accepted_at: Time.now) }
   let(:yesterday_story) { OpenStruct.new(accepted_at: 1.day.ago) }
 
-  let(:subject) { StreamPresenter.new }
+  let(:subject) { StreamPresenter.new('anything', stories) }
+  let(:stories) { [] }
 
   describe '#each_story' do
 
     def expect_each_story_to_have_successive_yields_with(*successive_args)
       expect do |b|
-        subject.each_story('a stream', stories, &b)
+        subject.each_story(&b)
       end.to yield_successive_args(*successive_args)
     end
 

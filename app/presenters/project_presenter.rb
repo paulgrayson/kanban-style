@@ -15,8 +15,8 @@ class ProjectPresenter
     }
   end
 
-  def stream_presenter
-    StreamPresenter.new
+  def stream_presenter(stream_name, stories)
+    StreamPresenter.new(stream_name, stories)
   end
 
 end

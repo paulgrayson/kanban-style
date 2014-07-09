@@ -1,10 +1,21 @@
 class StreamPresenter
 
-  def each_story(stream_name, stories)
+  attr_reader :stream_name
+
+  def initialize(stream_name, stories)
+    @stream_name = stream_name
+    @stories = stories
+  end
+
+  def human_stream_name
+    ActiveSupport::Inflector::humanize(stream_name)
+  end
+
+  def each_story
     return unless block_given?
     last_story = nil
-    stories.each do |story|
-      show_date_bar = stream_shows_date_bars?(stream_name) && !same_day?(last_story, story)
+    @stories.each do |story|
+      show_date_bar = stream_shows_date_bars?(@stream_name) && !same_day?(last_story, story)
       yield(story, show_date_bar)
       last_story = story
     end
