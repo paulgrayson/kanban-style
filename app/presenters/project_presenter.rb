@@ -1,4 +1,4 @@
-class ProjectPresenter < StreamPresenter
+class ProjectPresenter
 
   attr_reader :project
 
@@ -13,6 +13,10 @@ class ProjectPresenter < StreamPresenter
       in_progress: @streamer.in_progress,
       todo: @streamer.todo
     }
+  end
+
+  def stream_presenter
+    StreamPresenter.new
   end
 
 end
