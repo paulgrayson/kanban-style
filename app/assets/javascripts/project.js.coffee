@@ -29,9 +29,11 @@ class StreamLoader
     window.alert("Sorry there was an error.")
 
 
-$(document).ready ->
+ready = ->
   for streamEl in $(".stream")
     loader = new StreamLoader(streamEl)
     loader.load()
 
+$(document).ready(ready)
+$(document).on('page:load', ready)
       
