@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'projects/show.html.haml' do
 
-  let(:presenter) { ProjectPresenter.new(nil, nil) }
+  let(:presenter) { ProjectPresenter.new(nil) }
   let(:project) { OpenStruct.new(id: '123', name: 'Project Name') }
   let(:streams) { {done: [first_story]} }
   

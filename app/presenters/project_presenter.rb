@@ -2,9 +2,8 @@ class ProjectPresenter
 
   attr_reader :project
 
-  def initialize(project, streamer)
+  def initialize(project)
     @project = project
-    @streamer = streamer
   end
 
   def streams

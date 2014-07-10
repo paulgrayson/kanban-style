@@ -7,8 +7,7 @@ class ProjectsController < ApplicationController
   def show
     project = pivotal.fetch_project(params[:id])
     if project
-      streamer = Streamer.new(pivotal, project)
-      @presenter = ProjectPresenter.new(project, streamer)
+      @presenter = ProjectPresenter.new(project)
       render :show 
     else
       flash[:error] = 'Unknown project id'
