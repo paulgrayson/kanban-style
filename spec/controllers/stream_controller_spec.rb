@@ -8,7 +8,7 @@ describe StreamController do
     subject.stub(:pivotal).and_return(@pivotal_stub)
   end
 
-  let(:project) { double }
+  let(:project) { double(id: '123') }
   let(:stories) { [] }
 
   context 'known project and stream' do

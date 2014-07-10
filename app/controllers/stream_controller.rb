@@ -5,7 +5,7 @@ class StreamController < ApplicationController
     project = pivotal.fetch_project(params[:id])
     streamer = Streamer.new(pivotal, project)
     stories = streamer.stream(name)
-    presenter = StreamPresenter.new(name, stories)
+    presenter = StreamPresenter.new(project.id, name, stories)
     render partial: 'projects/stream',
            locals: { presenter: presenter }
   end

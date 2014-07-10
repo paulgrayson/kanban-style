@@ -30,6 +30,8 @@ a:hover { text-decoration: underline; }
 
 .clear { clear: both; }
 
+.hidden { display: none; }
+
 
 // "Grid" ----------
 
@@ -68,6 +70,10 @@ a:hover { text-decoration: underline; }
 .stream-done { background-color: #9DCE5C; }
 .stream-in_progress { background-color: #C7EB6E; }
 .stream-todo { background-color: #E5E5E5; }
+
+.stream-loading {
+  padding: $doublePad;
+}
 
 .story {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

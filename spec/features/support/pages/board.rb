@@ -18,7 +18,8 @@ module Pages
     end
 
     def stream_names
-      all('.stream-name').map(&:text)
+      # capybara/poltergiest seems to give back the CSS (text-transformed: uppercase) version i.e. all CAPS rather than the raw text
+      all('.stream-name').map(&:text).map(&:capitalize)
     end
   end
 end

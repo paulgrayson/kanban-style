@@ -7,7 +7,7 @@ describe StreamPresenter do
   let(:today_story) { OpenStruct.new(accepted_at: Time.now) }
   let(:yesterday_story) { OpenStruct.new(accepted_at: 1.day.ago) }
 
-  let(:subject) { StreamPresenter.new('anything', stories) }
+  let(:subject) { StreamPresenter.new('123', 'anything', stories) }
   let(:stories) { [] }
 
   describe '#each_story' do

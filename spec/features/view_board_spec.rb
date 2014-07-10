@@ -31,14 +31,9 @@ feature "viewing a projects board" do
     PivotalClient.any_instance.stub(fetch_stories: stories)
   end
 
-  scenario "the project name and some stories are shown", js: true do
+  scenario "shows project name and loads some stories for each stream", js: true do
     page.open project.id
     page.project_name.should == project.name
-    page.stories.length.should > 0
-  end
-
-  scenario "streams done, in-progress and todo, each containing stories are shown" do
-    page.open project.id
     page.stream_names.should contain_exactly('Done', 'In progress', 'Todo')
     page.stories(stream: :done).length.should > 0
     page.stories(stream: :in_progress).length.should > 0

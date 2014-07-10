@@ -2,13 +2,18 @@ class StreamPresenter
 
   attr_reader :stream_name
 
-  def initialize(stream_name, stories)
+  def initialize(project_id, stream_name, stories)
+    @project_id = project_id
     @stream_name = stream_name
     @stories = stories
   end
 
   def human_stream_name
     ActiveSupport::Inflector::humanize(stream_name)
+  end
+
+  def data_uri
+    Rails.application.routes.url_helpers.stream_project_path(id: @project_id, stream_name: self.stream_name)
   end
 
   def each_story

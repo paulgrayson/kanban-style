@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'projects/show.html.haml' do
 
   let(:presenter) { ProjectPresenter.new(nil, nil) }
-  let(:project) { OpenStruct.new(name: 'Project Name') }
+  let(:project) { OpenStruct.new(id: '123', name: 'Project Name') }
   let(:streams) { {done: [first_story]} }
   
   let(:first_story) do

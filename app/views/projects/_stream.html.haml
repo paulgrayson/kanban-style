@@ -1,5 +1,9 @@
-%div{class: "col1 stream stream-#{presenter.stream_name}"}
+%div{ |
+  class: "col1 stream stream-#{presenter.stream_name}", |
+  id: "stream-#{presenter.stream_name}", |
+  'data-uri'=> presenter.data_uri}
   %h2.stream-name= presenter.human_stream_name
+  %div.stream-loading.hidden Loading...
 
   - presenter.each_story do |story, show_date_bar|
     - if show_date_bar
