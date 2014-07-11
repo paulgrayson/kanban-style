@@ -71,6 +71,10 @@ describe StreamPresenter do
       subject.stream_shows_date_bars?(:done).should == true
     end
 
+    it 'shows date bar if stream is called DONE' do
+      subject.stream_shows_date_bars?('DONE').should == true
+    end
+
     it 'does not show date bar if stream is not called :in_progress' do
       subject.stream_shows_date_bars?(:in_progress).should == false
     end

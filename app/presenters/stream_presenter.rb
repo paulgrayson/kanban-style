@@ -27,7 +27,7 @@ class StreamPresenter
   end
 
   def stream_shows_date_bars?(stream_name)
-    stream_name == :done
+    stream_name.downcase.to_sym == :done
   end
 
   def same_day?(story_a, story_b)
