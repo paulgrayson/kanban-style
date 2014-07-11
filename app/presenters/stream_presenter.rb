@@ -2,10 +2,11 @@ class StreamPresenter
 
   attr_reader :stream_name
 
-  def initialize(project_id, stream_name, stories)
+  def initialize(project_id, stream_name, stories, loading=false)
     @project_id = project_id
     @stream_name = stream_name
     @stories = stories
+    @loading = loading
   end
 
   def human_stream_name
@@ -44,6 +45,10 @@ class StreamPresenter
     else
       []
     end
+  end
+
+  def show_nothing_to_see_message?
+    !@loading && @stories.empty?
   end
 
 end

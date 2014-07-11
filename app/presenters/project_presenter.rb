@@ -17,7 +17,7 @@ class ProjectPresenter
   end
 
   def stream_presenter(stream_name, stories)
-    StreamPresenter.new(self.project.id, stream_name, stories)
+    StreamPresenter.new(self.project.id, stream_name, stories, true)
   end
 
 end

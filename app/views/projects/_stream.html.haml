@@ -3,8 +3,11 @@
   id: "stream-#{presenter.stream_name}", |
   'data-uri'=> presenter.data_uri}
   %h2.stream-name= presenter.human_stream_name
-  %div.stream-loading.hidden Loading...
+  .stream-loading.hidden Loading...
 
+  - if presenter.show_nothing_to_see_message? 
+    .stream-empty Nothing to see here
+    
   - presenter.each_story do |story, show_date_bar|
     - if show_date_bar
       .date-bar= story.accepted_at.strftime('%a %-d %b')
