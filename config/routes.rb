@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resource :user
+
   resources :projects do
     member do
       get ':stream_name' => 'stream#show', :as => 'stream'

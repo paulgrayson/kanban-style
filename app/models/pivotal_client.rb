@@ -1,5 +1,11 @@
 class PivotalClient
 
+  def fetch_token(user_credentials)
+    PivotalTracker::Client.token(user_credentials['email'], user_credentials['password'])
+  rescue
+    false
+  end
+
   def fetch_projects
     PivotalTracker::Project.all
   end

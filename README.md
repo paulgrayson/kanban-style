@@ -9,6 +9,8 @@ Why? At daily standup, it's often hard for everyone to see the standard Pivotal 
 * Your .env file will need an API token for your PivotalTracker account. You can find this in PivotalTracker at the bottom of your profile page.
 
 ## Todo 
+* On projects page, load list of projects async
+* Show loading indicator at top of project page
 * Replace pivotal token in .env with a user login step
 * ...
 
