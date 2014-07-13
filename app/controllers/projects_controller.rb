@@ -1,7 +1,12 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = pivotal.fetch_projects
+    @projects, layout = if request.xhr?
+      [pivotal.fetch_projects, false]
+    else
+      [[], true]
+    end
+    render :index, layout: layout
   end
 
   def show
