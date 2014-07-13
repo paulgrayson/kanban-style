@@ -2,11 +2,9 @@ require 'features/features_helper'
 
 feature "viewing a projects board" do
 
-  let :page do
-    Pages::Board.new
-  end
+  let(:page) { Pages::Board.new }
 
-  let :project do
+  let(:project) do
     OpenStruct.new(
       id: 123,
       name: 'KanbanStyle'
