@@ -1,12 +1,22 @@
 class UsersController < ApplicationController
 
+  def show
+    @user = User.new
+  end
+
   def create
-    api_token = pivotal.fetch_token(user_params)
-    if api_token
-      session[:api_token] = api_token
-      redirect_to projects_path
+    @user = User.new(user_params)
+    if @user.valid?
+      api_token = pivotal.fetch_token(@user.email, @user.password)
+      if api_token
+        session[:api_token] = api_token
+        redirect_to projects_path
+      else
+        flash.now[:error] = 'Invalid credentials'
+        render :show
+      end
     else
-      redirect_to root_path
+      render :show
     end
   end
 

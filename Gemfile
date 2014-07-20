@@ -48,5 +48,7 @@ group :test do
   gem 'timecop'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'rack_session_access'
 end
 

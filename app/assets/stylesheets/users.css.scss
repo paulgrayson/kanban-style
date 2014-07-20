@@ -1,3 +1,45 @@
-// Place all the styles related to the user controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.new_user {
+  width: 500px;
+  background-color: #f7f7f7;
+  padding: 3*$doublePad;
+  margin: $doublePad auto;
+  font-size: large;
+}
+
+.field {
+  padding: $doublePad 0;
+}
+
+.field-label {
+  display: inline-block;
+  text-align: right;
+  width: 40%;
+}
+
+.field-input {
+  width: 50%;
+}
+
+.field-input, .field-label {
+  font-size: large;
+}
+
+.button-wrapper {
+  text-align: center;
+  margin: $doublePad 0 0 0;
+}
+
+.button {
+  padding: $doublePad;
+  font-size: large;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.field_with_errors {
+  display: inline;
+}
+

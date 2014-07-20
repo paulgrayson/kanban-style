@@ -10,6 +10,5 @@ Why? At daily standup, it's often hard for everyone to see the standard Pivotal 
 
 ## Todo  
 * Show loading indicator at top of projects and project page
-* Replace pivotal token in .env with a user login step
 * ...
 

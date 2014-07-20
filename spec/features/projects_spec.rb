@@ -17,6 +17,7 @@ feature "view the projects list" do
   end
 
   scenario "shows list of projects associated with pivotal account", js: true do
+    page.pretend_signed_in
     page.open
     page.projects.should contain_exactly(*projects.map(&:name))
   end

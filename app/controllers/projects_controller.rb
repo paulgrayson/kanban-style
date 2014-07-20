@@ -1,12 +1,15 @@
 class ProjectsController < ApplicationController
 
+  before_action :ensure_logged_in
+  
   def index
-    @projects, layout = if request.xhr?
-      [pivotal.fetch_projects, false]
+    if request.xhr?
+      @projects = pivotal.fetch_projects
+      render :index, layout: false
     else
-      [[], true]
+      @projects = []
+      render :index, layout: true
     end
-    render :index, layout: layout
   end
 
   def show
@@ -24,6 +27,15 @@ private
   
   def pivotal
     @pivotal_client ||= PivotalClient.new
+  end
+
+
+  def ensure_logged_in
+    if session[:api_token].blank?
+      redirect_to root_path
+    else
+      pivotal.set_token(session[:api_token])
+    end
   end
 
 end

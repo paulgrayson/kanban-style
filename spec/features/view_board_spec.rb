@@ -30,6 +30,7 @@ feature "viewing a projects board" do
   end
 
   scenario "shows project name and loads some stories for each stream", js: true do
+    page.pretend_signed_in
     page.open project.id
     page.project_name.should == project.name
     page.stream_names.should contain_exactly('Done', 'In progress', 'Todo')

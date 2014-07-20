@@ -1,7 +1,11 @@
 class PivotalClient
 
-  def fetch_token(user_credentials)
-    PivotalTracker::Client.token(user_credentials['email'], user_credentials['password'])
+  def set_token(api_token)
+    PivotalTracker::Client.token = api_token
+  end
+
+  def fetch_token(email, password)
+    PivotalTracker::Client.token(email, password)
   rescue
     false
   end

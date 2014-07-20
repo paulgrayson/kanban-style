@@ -1,5 +1,9 @@
 module Pages
   class Board < Base
+    def pretend_signed_in
+      page.set_rack_session(api_token: '123')
+    end
+
     def open(project_id)
       visit project_path(project_id)
     end

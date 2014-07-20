@@ -12,7 +12,15 @@ describe UsersController do
   let(:password) { double }
 
   describe '#create' do
-    context 'valid credentials' do
+
+    context 'no credentials' do
+      it 'renders the show template' do
+        post :create, user: {email: '', password: ''}
+        expect(response).to render_template(:show)
+      end
+    end
+
+    context 'valid pivotal credentials' do
       let(:api_token) { double }
       before { @pivotal_stub.stub(fetch_token: api_token) } 
 
@@ -27,12 +35,13 @@ describe UsersController do
       end
     end
 
-    context 'invalid credentials' do
+    context 'invalid pivotal credentials' do
       before { @pivotal_stub.stub(fetch_token: false) } 
 
-      it 'renders the same template' do
+      it 'renders the same template with flash' do
         post :create, user: { email: email, password: password }
-        expect(response).to redirect_to(root_path)
+        expect(response).to render_template(:show)
+        expect(flash.now[:error]).to eq 'Invalid credentials'
       end
     end
   end
