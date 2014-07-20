@@ -1,5 +1,5 @@
 module Pages
-  class Project < Base
+  class Board < Base
     def pretend_signed_in
       page.set_rack_session(api_token: '123')
     end

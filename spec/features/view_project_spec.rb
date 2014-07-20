@@ -1,8 +1,8 @@
 require 'features/features_helper'
 
-feature "viewing a projects board" do
+feature "viewing a project board" do
 
-  let(:page) { Pages::Board.new }
+  let(:page) { Pages::Project.new }
 
   let(:project) do
     OpenStruct.new(
