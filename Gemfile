@@ -43,6 +43,9 @@ gem 'pivotal-tracker'
 gem 'haml'
 gem 'dotenv'
 
+# for heroku
+gem 'rails_12factor', group: :production
+
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
