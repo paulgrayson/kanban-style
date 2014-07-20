@@ -10,5 +10,7 @@ Why? At daily standup, it's often hard for everyone to see the standard Pivotal 
 ## Todo  
 * Show loading indicator at top of projects and project page
 * Add sign-out
+* filter by label
+* change project drop down of projects on project view
 * ...
 
