@@ -42,6 +42,7 @@ gem 'spring',        group: :development
 gem 'pivotal-tracker'
 gem 'haml'
 gem 'dotenv'
+gem 'unicorn'
 
 # for heroku
 gem 'rails_12factor', group: :production
