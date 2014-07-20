@@ -82,7 +82,7 @@
 .project-list-item {
   background-color: lightgray;
   padding: $doublePad;
-  margin: $pad;
+  margin: $pad $doublePad $pad 0;
 }
 
 .project-list-item:hover {
