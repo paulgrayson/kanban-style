@@ -12,10 +12,4 @@ class StreamController < ApplicationController
            locals: { presenter: presenter }
   end
   
-private
-  
-  def pivotal
-    @pivotal_client ||= PivotalClient.new
-  end
-
 end

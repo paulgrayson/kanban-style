@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+private
+  
+  def pivotal
+    @pivotal_client ||= PivotalClient.new
+  end
+
 end
