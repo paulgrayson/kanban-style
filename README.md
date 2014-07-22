@@ -8,6 +8,7 @@ Why? At daily standup, it's often hard for everyone to see the standard Pivotal 
 * Make a .env file in the project root directory. There's a .env.example to help you
 
 ## Todo  
+* Fix exceptions when fetching streams due to nil project - API problem?
 * Show loading indicator at top of projects and project page
 * Add sign-out
 * filter by label
