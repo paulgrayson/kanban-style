@@ -1,5 +1,7 @@
 class StreamController < ApplicationController
 
+  before_action :ensure_logged_in
+
   def show
     name = params[:stream_name]
     project = pivotal.fetch_project(params[:id])

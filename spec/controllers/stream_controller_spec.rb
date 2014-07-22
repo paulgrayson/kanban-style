@@ -2,9 +2,12 @@ require 'rails_helper'
 
 describe StreamController do
 
+  let(:api_token) { double }
+
   # ensure no method on any PivotalClient instance is called
   before do
-    @pivotal_stub = double
+    session[:api_token] = api_token 
+    @pivotal_stub = double(set_token: nil)
     subject.stub(:pivotal).and_return(@pivotal_stub)
   end
 
@@ -12,12 +15,24 @@ describe StreamController do
   let(:stories) { [] }
 
   context 'known project and stream' do
-    it 'renders the stream template' do
+    before do
       @pivotal_stub.stub(fetch_project: project)
       @pivotal_stub.stub(fetch_stories: stories)
-      get :show, id: '1', stream_name: 'todo'
+    end
+
+    it 'renders the stream template' do
+      xhr :get, :show, id: '1', stream_name: 'todo'
       expect(response).to render_template('_stream')
     end
+
+    context 'no api token' do
+      it 'returns 401 unauthorized' do
+        session[:api_token] = nil
+        xhr :get, :show, id: '1', stream_name: 'todo'
+        response.code.should eq '401'
+      end
+    end
+
   end
 
 end

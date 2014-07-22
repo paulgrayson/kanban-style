@@ -29,13 +29,4 @@ private
     @pivotal_client ||= PivotalClient.new
   end
 
-
-  def ensure_logged_in
-    if session[:api_token].blank?
-      redirect_to root_path
-    else
-      pivotal.set_token(session[:api_token])
-    end
-  end
-
 end
