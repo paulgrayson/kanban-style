@@ -15,9 +15,15 @@ class StreamLoader
       .done (data)=> this.$el.replaceWith(data)
       .fail (data)=> @_showError(data)
 
+  _setCSFR: (xhr)->
+    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+
   _fetchStream: ->
     streamUrl = this.$el.attr("data-uri")
-    return $.ajax(url: streamUrl)
+    return $.ajax(
+      url: streamUrl,
+      beforeSend: @_setCSFR 
+    )
 
   _showLoading: ->
     this.$loadingIndicator.show()
