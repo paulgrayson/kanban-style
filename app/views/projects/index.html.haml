@@ -1,12 +1,10 @@
-%h1 KanbanStyle
+.col-sm-10
+  %h4 Select a project to see its Kanban board
 
-%p Select a project to see its Kanban board:
-
-%ul.project-list
-  - @projects.each do |project|
-    %a.project-list-link{href: project_path(project.id)}
-      %li.col1.project-list-item
+  .list-group
+    - @projects.each do |project|
+      %a.list-group-item.project-list-link{href: project_path(project.id)}
         = project.name
 
-%div.clear
+  %div.clear
 

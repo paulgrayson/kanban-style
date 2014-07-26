@@ -1,6 +1,11 @@
 /*
  *= require bootstrap.min
  */
-@import 'global';
-@import 'project';
-@import 'users';
+//@import 'global';
+//@import 'project';
+//@import 'users';
+
+.form-signin__form-control {
+  padding: 0 0 5px;
+}
+
