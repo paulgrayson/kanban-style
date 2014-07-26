@@ -25,5 +25,8 @@ module KanbanStyle
     #
 
     config.autoload_paths += Dir[Rails.root.join('app', 'presenters', '{**/}')]
+
+    # include bootstrap fonts in assets
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
   end
 end
