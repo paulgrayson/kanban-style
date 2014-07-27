@@ -1,3 +1,56 @@
-// Place all the styles related to the stream controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.stream {
+  font-size: x-large;
+}
+
+.stream + .stream {
+  border-left: 1px solid #f0f0f0;
+  padding-left: $quadPad;
+  margin-left: $quadPad;
+}
+
+.stream-name {
+  text-transform: uppercase;
+  margin: $doublePad 0;
+}
+
+.date-bar {
+  color: white;
+  padding: $pad;
+  margin: $pad -$pad;
+  background-color: #3299BB;
+}
+
+.date-bar + .story {
+  border-top: 0;
+}
+
+.story {
+  padding: 0px 0px;
+  color: #424242;
+  margin: 0 0 $quadPad;
+  border-top: 2px dotted #3299BB;
+}
+
+.story-name {
+  color: #424242;
+}
+
+.story-heading {
+  font-size: x-large;
+}
+
+.story-body {
+  font-size: large;
+}
+
+.story-labels {
+  font-size: small;
+  padding: $pad 0;
+}
+
+.story-label {
+  background-color: rgba(0,0,0, 0.1);
+  color: black;
+  padding: 1px 4px;
+  margin: $pad 0;
+}

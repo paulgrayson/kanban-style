@@ -1,10 +1,14 @@
-.col-sm-10
-  %h4 Select a project to see its Kanban board
+- content_for :navbar_content do
+  %li
+    %a{href: projects_path} All Projects
 
-  .list-group
-    - @projects.each do |project|
-      %a.list-group-item.project-list-link{href: project_path(project.id)}
-        = project.name
+.container-fluid
+  %h4 Select a project to see its Kanban board
+  - @projects.each_slice((@projects.length/3).floor+1) do |group|
+    .list-group.col-third
+      - group.each do |project|
+        %a.list-group-item.project-list-item{href: project_path(project.id)}
+          = project.name
 
   %div.clear
 

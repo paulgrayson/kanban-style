@@ -1,53 +1,28 @@
 $pad: 5px;
 $doublePad: $pad * 2;
+$quadPad: $pad * 4;
 $tightPad: 3px;
-
-
-// Resets ----------
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-h1, h2, h3 {
-  font-weight: normal;
-}
-
-body {
-  font-family: Arial;
-  font-size: x-large;
-}
-
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-// Utilities ----------
-
-.clear { clear: both; }
-
-.hidden { display: none; }
-
-.center { text-align: center; }
-
-
-// "Grid" ----------
-
-.col1 {
-  width: 33%;
-  float: left;
-}
 
 // shared layout -----------
 
-.footer {
-  font-size: small;
-  padding: $pad $pad;
+.col-third {
+  width: 30%;
+  float: left;
+  padding-right: $doublePad;
 }
 
-.main {
-  background-color: white;
-  padding: $pad;
+.navbar {
+  margin-bottom: 0;
+  background-color: #3299BB;
+  border-width: 0;
 }
 
+// Override bootstrap navbar item text colour (is there a nicer way to do this?)
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
+  color: white;
+}
 
+// Override bootstrap navbar item text colour (is there a nicer way to do this?)
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-brand:hover {
+  text-decoration: underline;
+}

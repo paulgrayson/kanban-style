@@ -1,8 +1,10 @@
-%div{ |
-  class: "col1 stream stream-#{presenter.stream_name}", |
+%div.col-third{ |
+  class: "stream stream-#{presenter.stream_name}", |
   id: "stream-#{presenter.stream_name}", |
   'data-uri'=> presenter.data_uri}
-  %h2.stream-name= presenter.human_stream_name
+
+  %h3.stream-name= presenter.human_stream_name
+
   .stream-loading.hidden Loading...
 
   - if presenter.show_nothing_to_see_message? 
@@ -10,11 +12,13 @@
     
   - presenter.each_story do |story, show_date_bar|
     - if show_date_bar
-      .date-bar= story.accepted_at.strftime('%a %-d %b')
+      %h4.date-bar= story.accepted_at.strftime('%a %-d %b')
     
     .story
-      %a.story-name{href: story.url}= story.name
-      .story-owner= story.owned_by
-      .story-labels
-        - presenter.story_labels(story).each do |label|
-          %span.story-label= label
+      .story-heading
+        %a.story-name{href: story.url}= story.name
+      .story-body
+        .story-owner= story.owned_by
+        .story-labels
+          - presenter.story_labels(story).each do |label|
+            %span.story-label= label

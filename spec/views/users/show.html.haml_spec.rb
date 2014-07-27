@@ -20,8 +20,8 @@ describe 'users/show.html.haml' do
       user.errors.add(:email, error_message)
       user.errors.add(:password, error_message)
       render
-      rendered.should have_selector('#user_email_field .error', text: error_message)
-      rendered.should have_selector('#user_password_field .error', text: error_message)
+      rendered.should have_selector('#user_email_field .help-block', text: error_message)
+      rendered.should have_selector('#user_password_field .help-block', text: error_message)
     end
   end
 
