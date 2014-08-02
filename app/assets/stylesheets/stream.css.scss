@@ -1,5 +1,5 @@
 .stream {
-  font-size: x-large;
+  font-size: 280%;
 }
 
 .stream + .stream {
@@ -25,7 +25,7 @@
 }
 
 .story {
-  padding: 0px 0px;
+  padding: $pad 0px;
   color: #424242;
   margin: 0 0 $quadPad;
   border-top: 2px dotted #3299BB;
@@ -36,15 +36,16 @@
 }
 
 .story-heading {
-  font-size: x-large;
+  line-height: 1.1;
+  padding-bottom: $pad;
 }
 
 .story-body {
-  font-size: large;
+  font-size: 60%;
 }
 
 .story-labels {
-  font-size: small;
+  font-size: 80%;
   padding: $pad 0;
 }
 
@@ -54,3 +55,9 @@
   padding: 1px 4px;
   margin: $pad 0;
 }
+
+.story-owner {
+  color: rgb(128, 128, 128);
+  padding-right: $pad;
+}
+

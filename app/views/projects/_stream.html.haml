@@ -16,9 +16,9 @@
     
     .story
       .story-heading
-        %a.story-name{href: story.url}= story.name
-      .story-body
-        .story-owner= story.owned_by
-        .story-labels
+        %a.story-name{href: story.url, target: '_blank'}= story.name
+      .story-body.clearfix
+        .story-owner.pull-left= story.owned_by
+        .story-labels.pull-left
           - presenter.story_labels(story).each do |label|
             %span.story-label= label
