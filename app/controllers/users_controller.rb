@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.valid?
       api_token = pivotal.fetch_token(@user.email, @user.password)
       if api_token
-        session[:api_token] = api_token
+        SessionUser.set_api_token(session, api_token)
         redirect_to projects_path
       else
         flash.now[:error] = 'Invalid credentials'
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    session[:api_token] = nil
+    SessionUser.sign_out(session)
     redirect_to root_path
   end
 
