@@ -5,7 +5,9 @@
 
   %h3.stream-name= presenter.human_stream_name
 
-  .stream-loading.hidden Loading...
+  .stream-loading
+    %span.fa.fa-spinner.fa-spin
+    Loading...
 
   - if presenter.show_nothing_to_see_message? 
     .stream-empty Nothing to see here

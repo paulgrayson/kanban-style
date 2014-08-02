@@ -15,6 +15,7 @@ class ProjectsLoader
     $.ajax(url: @projectsUrl, beforeSend: @_setCSFR)
       .done (data)=> this.$projectsList.html(data)
       .fail (data)=> @_showError(data)
+      .always => $('.projects-loading').hide()
 
   _showError: (data)->
     # TODO make error something nicer than an alert with more specific message

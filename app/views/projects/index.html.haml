@@ -4,6 +4,11 @@
 
 .container-fluid
   %h4 Select a project to see its Kanban board
+
+  .projects-loading
+    %span.fa.fa-spinner.fa-spin
+    Loading...
+
   - @projects.each_slice((@projects.length/3).floor+1) do |group|
     .list-group.col-third
       - group.each do |project|

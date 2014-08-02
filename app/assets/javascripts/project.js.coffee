@@ -7,13 +7,16 @@ class StreamLoader
 
   constructor: (streamEl)->
     this.$el = $(streamEl)
-    this.$loadingIndicator = this.$el.children('.stream-loading')
+    @streamElId = this.$el.attr('id')
 
-  load: ->
-    @_showLoading()
+  load: =>
     @_fetchStream()
-      .done (data)=> this.$el.replaceWith(data)
+      .done (data)=>
+        this.$el.replaceWith(data)
+        this.$el = $("##{@streamElId}")
       .fail (data)=> @_showError(data)
+      .always => 
+        this.$el.children('.stream-loading').hide()
 
   _setCSFR: (xhr)->
     xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
@@ -24,12 +27,6 @@ class StreamLoader
       url: streamUrl,
       beforeSend: @_setCSFR 
     )
-
-  _showLoading: ->
-    this.$loadingIndicator.show()
-
-  _hideLoading: ->
-    this.$loadingIndicator.hide()
 
   _showError: (data)->
     # TODO make error something nicer than an alert with more specific message
